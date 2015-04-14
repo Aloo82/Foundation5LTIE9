@@ -1,11 +1,20 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js media-md" lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Foundation</title>
-    <link rel="stylesheet" href="stylesheets/app.css" />
+
+    <!--[if (gt IE 8) | (IEMobile)]><!-->
+    <link rel="stylesheet" href="/stylesheets/app.css">
+    <!--<![endif]-->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <!--[if (lt IE 9) & (!IEMobile)]>
+    <link rel="stylesheet" href="/stylesheets/ltie9.css">
+    <script src="js/selectivizr-min.js"></script>
+    <![endif]-->
     <script src="bower_components/modernizr/modernizr.js"></script>
+
   </head>
   <body>
     <div class="row">
@@ -164,8 +173,7 @@
       </div>
     </div>
 
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/foundation/js/foundation.min.js"></script>
-    <script src="js/app.js"></script>
+    <!--<script src="bower_components/foundation/js/foundation.min.js"></script>-->
+    <!--<script src="js/app.js"></script>-->
   </body>
 </html>

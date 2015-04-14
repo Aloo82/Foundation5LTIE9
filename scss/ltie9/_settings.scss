@@ -57,6 +57,18 @@
 // Allows the use of rem-calc() or lower-bound() in your settings
 @import "foundation/functions";
 
+@function px-calc($values, $base-value: $rem-base) {
+  $max: length($values);
+
+  @if $max == 1 { @return strip-unit(nth($values, 1)) * strip-unit($base-value) * 1px; }
+
+  $pxValues: ();
+  @for $i from 1 through $max {
+    $pxValues: append($pxValues, strip-unit(nth($values, $i)) * strip-unit($base-value) * 1px);
+  }
+  @return $pxValues;
+}
+
 // The default font-size is set to 100% of the browser style sheet (usually 16px)
 // for compatibility with browser-based text zoom or user-set defaults.
 
@@ -69,9 +81,9 @@
 // $base-line-height: 150%;
 
 // We use this to control whether or not CSS classes come through in the gem files.
-$include-html-classes: true;
+// $include-html-classes: true;
 // $include-print-styles: true;
-$include-html-global-classes: $include-html-classes;
+// $include-html-global-classes: $include-html-classes;
 
 // b. Grid
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -81,7 +93,7 @@ $include-html-global-classes: $include-html-classes;
 
 // $row-width: rem-calc(1000);
 // $total-columns: 12;
-// $column-gutter: rem-calc(30);
+// $column-gutter: rem-calc(30);;
 
 // $last-child-float: $opposite-direction;
 
@@ -203,8 +215,8 @@ $include-html-global-classes: $include-html-classes;
 // $header-font-style: normal;
 // $header-font-color: $jet;
 // $header-line-height: 1.4;
-// $header-top-margin: .2rem;
-// $header-bottom-margin: .5rem;
+$header-top-margin: px-calc(.2);
+$header-bottom-margin: px-calc(.5);
 // $header-text-rendering: optimizeLegibility;
 
 // We use these to control header font sizes
@@ -213,7 +225,7 @@ $include-html-global-classes: $include-html-classes;
 // $h3-font-size: rem-calc(27);
 // $h4-font-size: rem-calc(23);
 // $h5-font-size: rem-calc(18);
-// $h6-font-size: 1rem;
+$h6-font-size: px-calc(1);
 
 // We use these to control header size reduction on small screens
 // $h1-font-reduction: rem-calc(10);
@@ -227,8 +239,8 @@ $include-html-global-classes: $include-html-classes;
 // $subheader-line-height: 1.4;
 // $subheader-font-color: scale-color($header-font-color, $lightness: 35%);
 // $subheader-font-weight: $font-weight-normal;
-// $subheader-top-margin: .2rem;
-// $subheader-bottom-margin: .5rem;
+$subheader-top-margin: px-calc(.2);
+$subheader-bottom-margin: px-calc(.5);
 
 // A general <small> styling
 // $small-font-size: 60%;
@@ -237,7 +249,7 @@ $include-html-global-classes: $include-html-classes;
 // We use these to style paragraphs
 // $paragraph-font-family: inherit;
 // $paragraph-font-weight: $font-weight-normal;
-// $paragraph-font-size: 1rem;
+$paragraph-font-size: px-calc(1);
 // $paragraph-line-height: 1.6;
 // $paragraph-margin-bottom: rem-calc(20);
 // $paragraph-aside-font-size: rem-calc(14);
@@ -253,7 +265,7 @@ $include-html-global-classes: $include-html-classes;
 // $code-border-size: 1px;
 // $code-border-style: solid;
 // $code-border-color: scale-color($code-background-color, $lightness: -10%);
-// $code-padding: rem-calc(2) rem-calc(5) rem-calc(1);
+// $code-padding: rem-calc(2 5 1);
 
 // We use these to style anchors
 // $anchor-text-decoration: none;
@@ -273,12 +285,12 @@ $include-html-global-classes: $include-html-classes;
 // $list-line-height: $paragraph-line-height;
 // $list-margin-bottom: $paragraph-margin-bottom;
 // $list-style-position: outside;
-// $list-side-margin: 1.1rem;
-// $list-ordered-side-margin: 1.4rem;
+$list-side-margin: px-calc(1.1);
+$list-ordered-side-margin: px-calc(1.4);
 // $list-side-margin-no-bullet: 0;
 // $list-nested-margin: rem-calc(20);
 // $definition-list-header-weight: $font-weight-bold;
-// $definition-list-header-margin-bottom: .3rem;
+$definition-list-header-margin-bottom: px-calc(.3);
 // $definition-list-margin-bottom: rem-calc(12);
 
 // We use these to style blockquotes
@@ -927,7 +939,7 @@ $include-html-global-classes: $include-html-classes;
 // Hide controls on small
 // $orbit-nav-hide-for-small: true;
 // $orbit-bullet-hide-for-small: true;
-// $orbit-timer-hide-for-small: true; 
+// $orbit-timer-hide-for-small: true;
 
 // 20. Pagination
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -1265,7 +1277,7 @@ $include-html-global-classes: $include-html-classes;
 // $switch-paddle-bg: $white;
 // $switch-paddle-transition-speed: .15s;
 // $switch-paddle-transition-ease: ease-out;
-// $switch-active-color: $primary-color; 
+// $switch-active-color: $primary-color;
 
 // 30. Tables
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -1456,7 +1468,7 @@ $include-html-global-classes: $include-html-classes;
 // Sticky Class
 // $topbar-sticky-class: ".sticky";
 // $topbar-arrows: true; //Set false to remove the triangle icon from the menu item
-// $topbar-dropdown-arrows: true; //Set false to remove the \00bb >> text from dropdown subnavigation li// 
+// $topbar-dropdown-arrows: true; //Set false to remove the \00bb >> text from dropdown subnavigation li//
 
 // 36. Visibility Classes
 // - - - - - - - - - - - - - - - - - - - - - - - - -

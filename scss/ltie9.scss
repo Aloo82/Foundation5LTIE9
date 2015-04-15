@@ -1,7 +1,5 @@
-@import "ltie9/settings";
-
+// Enable less than internet explorer 9 flag
 $ltie9 : true;
-
 
 // disable the css output
 //$include-html-classes : false;
@@ -10,7 +8,7 @@ $include-html-grid-classes : false;
 // ------------------------------
 // IE8 and below don't support media queries, using respond.js can slow down the page load on complex pages, so we're
 // attempt to produce a less browser intensive version
-@import "foundation/components/grid";
+@import "foundation5-ltie9/components/grid";
 
 // Create a new export for use with browsers that don't support media queries
 $ie-media-size-small     : media-sm;

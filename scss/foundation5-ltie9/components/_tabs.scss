@@ -23,7 +23,7 @@ $tabs-navigation-font-family: $body-font-family !default;
 $tabs-content-margin-bottom: rem-calc(24) !default;
 $tabs-content-padding: ($column-gutter/2) !default;
 
-$tabs-vertical-navigation-margin-bottom: 1.25rem !default;
+$tabs-vertical-navigation-margin-bottom: rem(1.25) !default;
 
 @include exports("tab") {
   @if $include-html-tabs-classes {
@@ -111,7 +111,7 @@ $tabs-vertical-navigation-margin-bottom: 1.25rem !default;
           max-width: 80%;
           float: $default-float;
           margin-#{$default-float}: -1px;
-          padding-#{$default-float}: 1rem;
+          padding-#{$default-float}: rem(1);
         }
       }
     }

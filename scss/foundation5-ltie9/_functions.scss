@@ -89,8 +89,8 @@ $modules: () !default;
 
 // CONVERT TO REM
 @function convert-to-rem($value, $base-value: $rem-base)  {
-  $value: strip-unit($value) / strip-unit($base-value) * 1rem;
-  @if ($value == 0rem) { $value: 0; } // Turn 0rem into 0
+  $value: strip-unit($value) / strip-unit($base-value) * rem(1);
+  @if ($value == rem(0)) { $value: 0; } // Turn rem(0) into 0
   @return $value;
 }
 
@@ -120,19 +120,39 @@ $modules: () !default;
 // If you require to comma separate your list
 //
 //   rem-calc((16px, 32px, 48), 8px);
-$ltie9 : false !default;
-@function rem-calc($values, $base-value: $rem-base) {
-  @if $ltie9 {
+@if $ltie9 {
+  // convert rem to px
+  @function convert-to-px($value, $base-value: $rem-base)  {
+    $value: strip-unit($value) * strip-unit($base-value) * 1px;
+    @if ($value == 0px) { $value: 0; } // Turn rem(0) into 0
+    @return $value;
+  }
+
+  @function rem($value) {
+    @return convert-to-px($value);
+  }
+
+  // Return all values as px
+  @function rem-calc($values, $base-value: $rem-base) {
     $max: length($values);
 
-    @if $max == 1 { @return nth($values, 1) + 0px; }
+    @if $max == 1 {
+      @return nth($values, 1) + 0px;
+    }
 
     $remValues: ();
     @for $i from 1 through $max {
       $remValues: append($remValues, nth($values, $i) + 0px);
     }
     @return $remValues;
-  } @else {
+  }
+} @else {
+
+  @function rem($value) {
+    @return $value;
+  }
+
+  @function rem-calc($values, $base-value: $rem-base) {
     $max: length($values);
 
     @if $max == 1 { @return convert-to-rem(nth($values, 1), $base-value); }
@@ -144,7 +164,6 @@ $ltie9 : false !default;
     @return $remValues;
   }
 }
-
 // OLD EM CALC
 // Deprecated: We'll drop support for this in 5.1.0, use rem-calc()
 @function emCalc($values){

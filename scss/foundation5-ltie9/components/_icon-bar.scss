@@ -16,15 +16,15 @@ $include-html-icon-bar-classes: $include-html-classes !default;
 $icon-bar-bg: $oil !default;
 $icon-bar-font-color: $white !default;
 $icon-bar-font-color-hover: $icon-bar-font-color !default;
-$icon-bar-font-size: 1rem !default;
+$icon-bar-font-size: rem(1) !default;
 $icon-bar-hover-color: $primary-color !default;
 $icon-bar-icon-color: $white !default;
 $icon-bar-icon-color-hover: $icon-bar-icon-color !default;
-$icon-bar-icon-size: 1.875rem !default;
-$icon-bar-image-width: 1.875rem !default;
-$icon-bar-image-height: 1.875rem !default;
+$icon-bar-icon-size: rem(1.875) !default;
+$icon-bar-image-width: rem(1.875) !default;
+$icon-bar-image-height: rem(1.875) !default;
 $icon-bar-active-color: $primary-color !default;
-$icon-bar-item-padding: 1.25rem !default;
+$icon-bar-item-padding: rem(1.25) !default;
 
 // We use this to set default opacity and cursor for disabled icons.
 $icon-bar-disabled-opacity: 0.7 !default;
@@ -57,7 +57,7 @@ $icon-bar-disabled-cursor: $cursor-disabled-value !default;
 			margin: 0 auto;
 
 			& + label {
-				margin-top: .0625rem;
+				margin-top: rem(.0625);
 			}
 		}
 
@@ -75,7 +75,7 @@ $icon-bar-disabled-cursor: $cursor-disabled-value !default;
 	&.label-right > * {
 
 		i, img {
-			margin: 0 .0625rem 0 0;
+			margin: 0 rem(.0625) 0 0;
 			display: inline-block;
 
 			& + label {
@@ -142,7 +142,7 @@ $icon-bar-disabled-cursor: $cursor-disabled-value !default;
 		i, img {
 
 			& + label {
-				margin-top: .0625rem;
+				margin-top: rem(.0625);
 			}
 		}
 

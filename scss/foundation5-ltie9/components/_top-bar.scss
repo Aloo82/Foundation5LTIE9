@@ -42,7 +42,7 @@ $topbar-link-text-transform: none !default;
 $topbar-link-padding: ($topbar-height / 3) !default;
 $topbar-back-link-size: rem-calc(18) !default;
 $topbar-link-dropdown-padding: rem-calc(20) !default;
-$topbar-button-font-size: 0.75rem !default;
+$topbar-button-font-size: rem(0.75) !default;
 $topbar-button-top: 7px !default;
 
 // Style the top bar dropdown elements
@@ -171,14 +171,14 @@ $topbar-dropdown-arrows: true !default; //Set false to remove the \00bb >> text 
 
       input { 
         height: $topbar-input-height; 
-        padding-top: .35rem; 
-        padding-bottom: .35rem; 
+        padding-top: rem(.35);
+        padding-bottom: rem(.35);
         font-size: $topbar-button-font-size; 
       }
 
       .button, button {
-        padding-top: .35rem + rem-calc(1);
-        padding-bottom: .35rem + rem-calc(1);
+        padding-top: rem(.35) + rem-calc(1);
+        padding-bottom: rem(.35) + rem-calc(1);
         margin-bottom: 0;
         font-size: $topbar-button-font-size;
         // position: relative;
@@ -572,7 +572,7 @@ $topbar-dropdown-arrows: true !default; //Set false to remove the \00bb >> text 
                 &:after {
                   border: none;
                   content: "\00bb";
-                  top: 1rem;
+                  top: rem(1);
                   margin-top: -1px;
                   #{$opposite-direction}: 5px;
                   line-height: 1.2;

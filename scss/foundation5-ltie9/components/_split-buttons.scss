@@ -179,7 +179,7 @@ $split-button-pip-default-float-lrg: rem-calc(-6) !default;
       &.tiny { @include split-button(tiny, false, false, false); }
       &.small { @include split-button(small, false, false, false); }
       &.large { @include split-button(large, false, false, false); }
-      &.expand { padding-left: 2rem; }
+      &.expand { padding-left: rem(2); }
 
       &.secondary { @include split-button(false, $split-button-pip-color-alt, false, false); }
 

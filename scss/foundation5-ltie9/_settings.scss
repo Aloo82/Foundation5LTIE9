@@ -53,7 +53,7 @@
 // + 1. > Internet Explorer 9
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-// Default flag to enable less than IE9
+// Flag to enable less than IE9, default is false to allow compatibility
 $ltie9 : false !default; 
 
 // Replace all rem values with px-calc
